@@ -1,17 +1,64 @@
-A multi-agent research system that does your Googling, thinking, and writing for you. Not because you're lazy. Because you're efficient.
+# 🤖 AI Research Agent
 
-Python CrewAI Mistral Streamlit
+An AI-powered **Multi-Agent Research System** that automates web research, analyzes information, and generates structured research reports using collaborative AI agents.
 
-What it does
-You type a question. Three AI agents argue about it (professionally), then hand you a clean research report. You take the credit. Everyone wins.
+Built with **Python**, **CrewAI**, **Mistral AI**, **Streamlit**, and **Serper API**, this project demonstrates how multiple AI agents can work together to perform research tasks efficiently.
 
-Your question  →  Researcher  →  Analyst  →  Writer  →  Your report
-The agents:
+---
 
-Researcher — scours the web so you don't have to open 14 tabs
-Analyst — figures out what actually matters in all that noise
-Writer — turns it into something readable (unlike my commit messages)
-Project structure
+## 🚀 Features
+
+- Multi-Agent AI Architecture
+- Automated Web Research
+- Intelligent Information Analysis
+- AI-Generated Research Reports
+- Real-Time Web Search Integration
+- Interactive Streamlit Interface
+- Modular & Scalable Design
+- Secure API Key Management
+
+---
+
+## 🏗️ How It Works
+
+```
+User Query
+     │
+     ▼
+Research Agent
+     │
+     ▼
+Analysis Agent
+     │
+     ▼
+Content Writer Agent
+     │
+     ▼
+Structured Research Report
+```
+
+### AI Agents
+
+### 🔍 Research Specialist
+- Searches the web for relevant information
+- Collects reliable sources
+- Gathers research data
+
+### 📊 Data Analyst
+- Processes collected information
+- Identifies key insights
+- Removes irrelevant data
+
+### ✍️ Content Writer
+- Organizes research findings
+- Generates structured reports
+- Produces clear and readable content
+
+---
+
+## 📁 Project Structure
+
+```
 ai-research-agent/
 ├── agents/
 │   ├── research_specialist.py
@@ -21,59 +68,136 @@ ai-research-agent/
 │   ├── research_task.py
 │   ├── analysis_task.py
 │   └── writing_task.py
-├── crew.py          ← where the agents actually meet
-├── app.py           ← the pretty face
+├── crew.py
+├── app.py
 ├── requirements.txt
-└── .env.example
-Setup (5 minutes, I timed it)
-1. Clone it
+├── .env.example
+└── README.md
+```
 
-git clone https://github.com/LuminoSage/ai-research-agent.git
+---
+
+## 🛠️ Tech Stack
+
+- Python
+- CrewAI
+- Mistral AI
+- Streamlit
+- Serper API
+- Large Language Models (LLMs)
+- Prompt Engineering
+
+---
+
+## ⚙️ Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/ai-research-agent.git
 cd ai-research-agent
-2. Create a virtual environment
+```
 
+### 2. Create a Virtual Environment
+
+```bash
 python -m venv .venv
+```
 
-# Windows
+**Windows**
+
+```bash
 .venv\Scripts\activate
+```
 
-# Mac/Linux
+**macOS/Linux**
+
+```bash
 source .venv/bin/activate
-3. Install dependencies
+```
 
+### 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
 pip install litellm
-4. Get your API keys (both free, no credit card)
+```
 
-Key	Where
-MISTRAL_API_KEY	https://console.mistral.ai
-SERPER_API_KEY	https://serper.dev
-5. Add them to .env
+### 4. Configure API Keys
 
-cp .env.example .env
-# open .env and paste your keys
-6. Run
+Create a `.env` file and add:
 
+```env
+MISTRAL_API_KEY=your_api_key
+SERPER_API_KEY=your_api_key
+```
+
+### 5. Run the Application
+
+```bash
 streamlit run app.py
-Open http://localhost:8501 and ask it something.
+```
 
-Queries that work well
-"Latest breakthroughs in fusion energy 2025"
-"How is AI changing drug discovery?"
-"Explain quantum computing like I have a CS degree but forgot everything"
-Tech stack
-CrewAI — the multi-agent framework doing the heavy lifting
-Mistral AI — the LLM powering the agents (free tier)
-SerperDev — real-time web search (2500 free searches/month)
-Streamlit — the UI that makes it look like I know design
-Common issues
-signal only works in main thread — harmless warning from CrewAI telemetry. Add CREWAI_TELEMETRY_OPT_OUT=true to your .env to silence it.
+The application will start at:
 
-Invalid API Key — you probably copy-pasted with a space. Check your .env.
+```
+http://localhost:8501
+```
 
-Agents seem stuck — they're not. Mistral is thinking. Give it 30–60 seconds. Research takes time, even for AI.
+---
 
-Notes
-Python 3.12 recommended. 3.14 breaks half the AI libraries (they're not ready for the future yet)
-The .env file is gitignored on purpose. Don't commit your API keys. Please.
-If an agent fails mid-run, check your Mistral/Serper quotas first before debugging for an hour
+## 💡 Example Research Queries
+
+- Latest breakthroughs in fusion energy
+- How is AI transforming drug discovery?
+- Future of Generative AI in healthcare
+- Applications of Quantum Computing
+- Impact of Artificial Intelligence on Cybersecurity
+
+---
+
+## 📌 Use Cases
+
+- Academic Research
+- Business Intelligence
+- Market Research
+- Competitive Analysis
+- Technology Research
+- Content Research
+
+---
+
+## ⚠️ Common Issues
+
+### Invalid API Key
+Verify that your API keys are correctly added to the `.env` file.
+
+### Slow Response
+Research tasks may take 30–60 seconds depending on the complexity of the query.
+
+### CrewAI Telemetry Warning
+
+Add the following to your `.env` file if required:
+
+```env
+CREWAI_TELEMETRY_OPT_OUT=true
+```
+
+---
+
+## 🔮 Future Improvements
+
+- PDF Report Export
+- Citation Generation
+- Multi-LLM Support
+- Research History
+- Cloud Deployment
+- Vector Database Integration (RAG)
+
+---
+
+## 👨‍💻 Author
+
+**Lakshay**
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
