@@ -1,117 +1,79 @@
- 🤖 AI Research Agent
+A multi-agent research system that does your Googling, thinking, and writing for you. Not because you're lazy. Because you're efficient.
 
-An AI-powered Multi-Agent Research Assistant that automates web research, analyzes information, and generates structured research reports using collaborative AI agents.
+Python CrewAI Mistral Streamlit
 
-Built with **Python**, **CrewAI**, **Streamlit**, **Mistral AI**, and **Serper API**, this project demonstrates how multiple AI agents can work together to perform intelligent research tasks efficiently.
+What it does
+You type a question. Three AI agents argue about it (professionally), then hand you a clean research report. You take the credit. Everyone wins.
 
----
- 🚀 Features
+Your question  →  Researcher  →  Analyst  →  Writer  →  Your report
+The agents:
 
-- 🔍 Automated web research
-- 🤖 Multi-Agent AI collaboration
-- 📝 AI-generated research reports
-- 🌐 Real-time web search integration
-- 💬 Interactive Streamlit interface
-- 📊 Intelligent information analysis
-- ⚡ Fast and scalable architecture
-- 🔐 Secure API key management
-
----
-
-🛠️ Tech Stack
-
-- Python
-- CrewAI
-- Streamlit
-- Mistral AI
-- Serper API
-- Large Language Models (LLMs)
-- Prompt Engineering
-
----
-
-📂 Project Structure
-
-```
-AI-Research-Agent/
-│
-├── app.py
+Researcher — scours the web so you don't have to open 14 tabs
+Analyst — figures out what actually matters in all that noise
+Writer — turns it into something readable (unlike my commit messages)
+Project structure
+ai-research-agent/
 ├── agents/
+│   ├── research_specialist.py
+│   ├── data_analyst.py
+│   └── content_writer.py
 ├── tasks/
-├── tools/
-├── config/
+│   ├── research_task.py
+│   ├── analysis_task.py
+│   └── writing_task.py
+├── crew.py          ← where the agents actually meet
+├── app.py           ← the pretty face
 ├── requirements.txt
-├── .env.example
-└── README.md
-```
+└── .env.example
+Setup (5 minutes, I timed it)
+1. Clone it
 
----
+git clone https://github.com/LuminoSage/ai-research-agent.git
+cd ai-research-agent
+2. Create a virtual environment
 
-⚙️ Installation
+python -m venv .venv
 
-1. Clone the repository
+# Windows
+.venv\Scripts\activate
 
-```bash
-git clone https://github.com/your-username/AI-Research-Agent.git
-cd AI-Research-Agent
-```
+# Mac/Linux
+source .venv/bin/activate
+3. Install dependencies
 
- 2. Install dependencies
-
-```bash
 pip install -r requirements.txt
-```
+pip install litellm
+4. Get your API keys (both free, no credit card)
 
-3. Configure environment variables
+Key	Where
+MISTRAL_API_KEY	https://console.mistral.ai
+SERPER_API_KEY	https://serper.dev
+5. Add them to .env
 
-Create a `.env` file and add your API keys.
+cp .env.example .env
+# open .env and paste your keys
+6. Run
 
-```env
-MISTRAL_API_KEY=your_api_key
-SERPER_API_KEY=your_api_key
-```
-
- 4. Run the application
-
-```bash
 streamlit run app.py
-```
+Open http://localhost:8501 and ask it something.
 
----
- How It Works
+Queries that work well
+"Latest breakthroughs in fusion energy 2025"
+"How is AI changing drug discovery?"
+"Explain quantum computing like I have a CS degree but forgot everything"
+Tech stack
+CrewAI — the multi-agent framework doing the heavy lifting
+Mistral AI — the LLM powering the agents (free tier)
+SerperDev — real-time web search (2500 free searches/month)
+Streamlit — the UI that makes it look like I know design
+Common issues
+signal only works in main thread — harmless warning from CrewAI telemetry. Add CREWAI_TELEMETRY_OPT_OUT=true to your .env to silence it.
 
-1. User enters a research topic.
-2. The Research Agent searches the web.
-3. The Analysis Agent processes the collected information.
-4. The Writing Agent generates a structured research report.
-5. Results are displayed in the Streamlit interface.
+Invalid API Key — you probably copy-pasted with a space. Check your .env.
 
----
+Agents seem stuck — they're not. Mistral is thinking. Give it 30–60 seconds. Research takes time, even for AI.
 
-🎯 Use Cases
-
-- Academic Research
-- Market Research
-- Business Intelligence
-- Technology Research
-- Competitive Analysis
-- AI-Assisted Knowledge Discovery
-
----
-
-🔮 Future Improvements
-
-- PDF report export
-- Citation generation
-- Multiple LLM support
-- Agent memory
-- Research history
-- Cloud deployment
-
----
-
-👨‍💻 Author
-
-**Lakshay**
-
-If you found this project helpful, consider giving it a ⭐ on GitHub!
+Notes
+Python 3.12 recommended. 3.14 breaks half the AI libraries (they're not ready for the future yet)
+The .env file is gitignored on purpose. Don't commit your API keys. Please.
+If an agent fails mid-run, check your Mistral/Serper quotas first before debugging for an hour
