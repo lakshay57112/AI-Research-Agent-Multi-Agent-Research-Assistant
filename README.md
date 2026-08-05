@@ -94,7 +94,7 @@ ai-research-agent/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/ai-research-agent.git
+git clone https://github.com/lakshay57112/AI-Research-Agent-Multi-Agent-Research-Assistant.git
 cd ai-research-agent
 ```
 
